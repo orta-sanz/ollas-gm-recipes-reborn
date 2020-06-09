@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
     entry: './src/index.js',
     module: {
@@ -14,7 +16,9 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCSSExtractPlugin.loader,
+                    devMode
+                        ? 'style-loader'
+                        : MiniCSSExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]

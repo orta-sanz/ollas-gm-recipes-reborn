@@ -9,7 +9,9 @@
         ["module-resolver", {
             "root": ["./"],
             "alias": {
-                "@components": "./src/components"
+                "@components": "./src/components",
+                "@data": "./data",
+                "@utils": "./src/utils"
             }
         }]
     ],

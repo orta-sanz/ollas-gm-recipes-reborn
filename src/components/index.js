@@ -1,5 +1,5 @@
-import Button from './Button.jsx';
+import Recipe from './Recipe.jsx';
 
 export {
-    Button
+    Recipe
 }
