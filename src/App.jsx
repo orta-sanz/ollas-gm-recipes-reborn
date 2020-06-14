@@ -1,5 +1,4 @@
 import { Recipe } from '@components';
-import LazyLoad from 'react-lazyload';
 import recipes from '@data/recipes.json';
 import { normalize } from '@utils/string';
 import React, { useState, useMemo } from 'react';
@@ -70,9 +69,7 @@ const App = () => {
 
                     if(showByDifficulty && showByText) {
                         return (
-                            <LazyLoad height={200} key={key} once offset={100} scrollContainer=".list">
-                                <Recipe {...recipeData} />
-                            </LazyLoad>
+                            <Recipe {...recipeData} />
                         )
                     }
                 })}

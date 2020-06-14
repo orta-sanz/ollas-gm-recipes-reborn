@@ -1,8 +1,8 @@
 .recipe {
-    flex: 1 0 21%;
-    display: block;
+    width: 100%;
     color: #333;
-    max-width: 25%;
+    display: block;
+    margin-bottom: 15px;
     text-decoration: none;
 
     &--image {
@@ -15,5 +15,11 @@
 
     ul {
         list-style: none;
+    }
+
+    @media only screen and (min-width: 768px) {
+        flex: 1 0 21%;
+        max-width: 25%;
+        padding: 15px;
     }
 }
