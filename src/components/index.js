@@ -1,3 +1,3 @@
-import Recipe from './Recipe.jsx';
+import Recipe from './recipe.jsx';
 
 export { Recipe };

@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const getTotalRecipesPages = require('./modules/totalPages');
-const getRecipesInPage = require('./modules/recipesInPage');
-const getRecipeData = require('./modules/recipeData');
+const getTotalRecipesPages = require('./modules/total-pages');
+const getRecipesInPage = require('./modules/recipes-in-page');
+const getRecipeData = require('./modules/recipe-data');
 
 const getAndSaveAllRecipes = async () => {
   const recipes = [];
