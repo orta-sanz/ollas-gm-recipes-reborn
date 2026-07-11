@@ -1,18 +1,24 @@
 {
-    "presets": [
-        "@babel/preset-env",
-        ["@babel/preset-react", {
-            "flow": false
-        }],
-    ],
-    "plugins": [
-        ["module-resolver", {
-            "root": ["./"],
-            "alias": {
-                "@components": "./src/components",
-                "@data": "./data",
-                "@utils": "./src/utils"
-            }
-        }]
-    ],
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "flow": false
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@components": "./src/components",
+          "@data": "./data",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
 }

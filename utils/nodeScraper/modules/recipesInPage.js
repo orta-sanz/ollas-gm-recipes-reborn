@@ -7,33 +7,31 @@ const cheerio = require('cheerio');
  *   - link
  */
 module.exports = async (page) => {
-    const url = `https://www.ollasgm.com/blog/page/${page}`;
+  const url = `https://www.ollasgm.com/blog/page/${page}`;
 
-    return axios(url)
-        .then(response => {
-            const html = response.data;
-            const $ = cheerio.load(html);
+  return axios(url)
+    .then((response) => {
+      const html = response.data;
+      const $ = cheerio.load(html);
 
-            const recipes = [];
+      const recipes = [];
 
-            $('article.post').each(function () {
-                const titleElement = $(this).find('.post-title a');
+      $('article.post').each(function () {
+        const titleElement = $(this).find('.post-title a');
 
-                recipes.push({
-                    title: titleElement
-                        .text()
-                        .replace('en Olla GM', '')
-                        .trim(),
-                    link: titleElement.attr('href')
-                });
-            });
+        recipes.push({
+          title: titleElement.text().replace('en Olla GM', '').trim(),
+          link: titleElement.attr('href'),
+        });
+      });
 
-            return recipes;
-        }).catch((error) => {
-            console.log(`
+      return recipes;
+    })
+    .catch((error) => {
+      console.log(`
                 ${error}
                 \n
                 Página: ${page}
             `);
-        })
-}
+    });
+};
