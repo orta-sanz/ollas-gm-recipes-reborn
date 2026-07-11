@@ -26,7 +26,14 @@ const getAndSaveAllRecipes = async () => {
     recipes.push(...mappedRecipes);
   }
 
-  fs.writeFileSync('./data/recipes.json', JSON.stringify(recipes), {
+  if (recipes.length === 0) {
+    console.error(
+      'No recipes were scraped — aborting without overwriting data/recipes.json'
+    );
+    process.exit(1);
+  }
+
+  fs.writeFileSync('./data/recipes.json', JSON.stringify(recipes, null, 2), {
     flag: 'w+',
   });
 };
