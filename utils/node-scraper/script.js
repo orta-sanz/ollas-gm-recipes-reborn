@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const getTotalRecipesPages = require('./modules/totalPages');
-const getRecipesInPage = require('./modules/recipesInPage');
-const getRecipeData = require('./modules/recipeData');
+const getTotalRecipesPages = require('./modules/total-pages');
+const getRecipesInPage = require('./modules/recipes-in-page');
+const getRecipeData = require('./modules/recipe-data');
 
 const getAndSaveAllRecipes = async () => {
   const recipes = [];
@@ -26,7 +26,14 @@ const getAndSaveAllRecipes = async () => {
     recipes.push(...mappedRecipes);
   }
 
-  fs.writeFileSync('./data/recipes.json', JSON.stringify(recipes), {
+  if (recipes.length === 0) {
+    console.error(
+      'No recipes were scraped — aborting without overwriting data/recipes.json'
+    );
+    process.exit(1);
+  }
+
+  fs.writeFileSync('./data/recipes.json', JSON.stringify(recipes, null, 2), {
     flag: 'w+',
   });
 };
