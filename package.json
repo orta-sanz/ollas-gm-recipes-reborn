@@ -5,6 +5,9 @@
   "repository": "git@github.com:orta-sanz/sonymacker-landing.git",
   "author": "Alejandro Orta <orta.sanz.93@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "start": "webpack-dev-server --config ./build/webpack.config.dev.js",
     "build": "webpack --config ./build/webpack.config.prod.js",
