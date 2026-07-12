@@ -1,7 +1,12 @@
 name: Scrape recipes
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      full:
+        description: 'Re-scrape every recipe (full) instead of incremental'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -20,7 +25,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - run: yarn scraper
+      - run: ${{ inputs.full && 'yarn scraper:full' || 'yarn scraper' }}
 
       - name: Check for changes
         id: git-check
