@@ -15,6 +15,7 @@
     "start": "webpack-dev-server --config ./build/webpack.config.dev.js",
     "build": "webpack --config ./build/webpack.config.prod.js",
     "scraper": "node ./utils/node-scraper/script.js",
+    "scraper:full": "node ./utils/node-scraper/script.js --full",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
